@@ -12,17 +12,17 @@ class TrajectoryPublisher(Node):
         # Call the constructor of the parent class (Node) using super()
         super().__init__('robot_joint_trajectory_publisher')
         
-        # # Set the timer period to 1 second
-        # timer_period = 1
+        # Set the timer period to 1 second
+        timer_period = 1
 
-        # # Create a timer and associate it with the timer_callback method
-        # self.timer = self.create_timer(timer_period, self.timer_callback)
+        # Create a timer and associate it with the timer_callback method
+        self.timer = self.create_timer(timer_period, self.timer_callback)
 
-        # # Create a publisher for the JointTrajectory message on the specified topic
-        # self.trajectory_publisher = self.create_publisher(JointTrajectory,"/joint_trajectory_controller/joint_trajectory", 10)
+        # Create a publisher for the JointTrajectory message on the specified topic
+        self.trajectory_publisher = self.create_publisher(JointTrajectory,"/joint_trajectory_controller/joint_trajectory", 10)
 
 
-    # # Callback method for the timer
+    # Callback method for the timer
     # def timer_callback(self):
 
     #     # Create a list containing a single value (-0.7) representing goal positions
