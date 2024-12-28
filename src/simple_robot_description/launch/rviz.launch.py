@@ -13,7 +13,7 @@ def generate_launch_description():
 
 
     urdf_tutorial_path = FindPackageShare(package_name)
-    default_model_path = PathJoinSubstitution(['models', 'arm_1dof.urdf'])
+    default_model_path = PathJoinSubstitution(['models', 'arm_3dof.urdf'])
     default_rviz_config_path = PathJoinSubstitution([urdf_tutorial_path, 'models', 'robot.rviz'])
 
     gui_arg = DeclareLaunchArgument(name='gui', default_value='true', choices=['true', 'false'],

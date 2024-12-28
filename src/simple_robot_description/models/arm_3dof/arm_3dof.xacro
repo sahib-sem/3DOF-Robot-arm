@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<robot name="arm_1dof" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="arm_3dof" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <xacro:include filename="joints.xacro" />
     
@@ -14,6 +14,7 @@
         <color rgba="1.0 1.0 1.0 1.0" />
     </material>
 
+    <!-- Link 0 -->
     <link name="link_0">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0" />
@@ -37,6 +38,7 @@
         <material>Gazebo/Black</material>
     </gazebo>
 
+    <!-- Link 1 -->
     <link name="link_1">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0.1" />
@@ -60,7 +62,7 @@
         <material>Gazebo/Red</material>
     </gazebo>
 
-     <joint name="joint_link0_link1" type="revolute" >
+    <joint name="joint_link0_link1" type="revolute" >
         <origin rpy="0 0 0" xyz="0.0 0 0.05" />
         <parent link="link_0" />
         <child link="link_1" />
@@ -68,6 +70,7 @@
         <limit effort="100.0" lower="-1.57" upper="1.57" velocity="1.0" />
     </joint>
 
+    <!-- Link 2 -->
     <link name="link_2">
         <visual>
             <origin rpy="0 0 0" xyz="-0.2 0 0.05" />
@@ -99,7 +102,7 @@
         <limit effort="100.0" lower="-1.57" upper="1.57" velocity="1.0" />
     </joint>
 
-
+    <!-- Link 3 -->
     <link name="link_3">
         <visual>
             <origin rpy="0 0 0" xyz="-0.2 0 -0.05" />
@@ -131,39 +134,6 @@
         <limit effort="100.0" lower="-1.57" upper="1.57" velocity="1.0" />
     </joint>
 
+    <xacro:config_ctr_gazebo />
 
-
-    <link name="top_link">
-        <visual>
-            <origin rpy="0 0 0" xyz="0.05 0 0.2" />
-            <geometry>
-                <box size="0.1 0.1 0.4" />
-            </geometry>
-        </visual>
-        <collision>
-            <origin rpy="0 0 0" xyz="0.05 0 0.2" />
-            <geometry>
-                <box size="0.1 0.1 0.4" />
-            </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.1" />
-            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
-        </inertial>
-    </link>
-
-    <gazebo reference="top_link">
-        <material>Gazebo/White</material>
-    </gazebo>
-
-    <joint name="joint1" type="revolute" >
-        <origin rpy="0 0 0" xyz="0.05 0 0.2" />
-        <parent link="link_3" />
-        <child link="top_link" />
-        <axis xyz="1 0 0" />
-        <limit effort="100.0" lower="-1.57" upper="1.57" velocity="1.0" />
-    </joint>
-
-   
-    <xacro:config_ctr_gazebo /> 
 </robot>
